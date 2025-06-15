@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+ body {
+  @apply bg-red-500 text-white;
+}
+  h1, h2, h3 {
+    @apply font-bold text-gray-5000;
+  }
+
+  a {
+    @apply text-blue-600 hover:underline;
+  }
+}
