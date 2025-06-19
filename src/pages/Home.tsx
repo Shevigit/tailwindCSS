@@ -1,15 +1,22 @@
-const Home = () => {
-  return (
-    <main className="container py-12">
-      <h1 className="text-4xl font-bold mb-6">ברוכים הבאים</h1>
-      <p className="text-lg mb-4">
-        זהו דף הבית עם עיצוב גלובלי. כל צבע, ריווח וטיפוגרפיה נקבעו מראש.
-      </p>
-      <button className="bg-primary text-white py-2 px-4 rounded hover:bg-green-700 transition">
-        התחילו עכשיו
-      </button>
-    </main>
-  );
-};
+// src/pages/Home.tsx
+import { Button } from "../components/ui/button";
+import { Input } from "../components/ui/input";
+import { Card } from "../components/ui/card";
+import { H1, Paragraph } from "../components/ui/typography";
 
-export default Home;
+export default function Home() {
+  return (
+    <div className="min-h-screen flex items-center justify-center p-6 bg-[--color-background]">
+      <Card className="w-full max-w-md space-y-4">
+        <H1>ברוך הבא</H1>
+        <Paragraph>נא להזין את כתובת האימייל שלך כדי להתחיל</Paragraph>
+        <Input placeholder="example@email.com" />
+        <div className="flex justify-between">
+          <Button>כניסה</Button>
+          <Button variant="outline">הרשמה</Button>
+          <Button variant="danger">מחיקה</Button>
+        </div>
+      </Card>
+    </div>
+  );
+}
