@@ -9,7 +9,7 @@ interface SummaryBoxProps extends React.HTMLAttributes<HTMLDivElement> {
   value: string | React.ReactNode;
   description?: string | React.ReactNode;
   icon?: React.ReactNode;
-  iconColor?: "primary" | "secondary" | "accent" | "muted" | "success" | "danger";
+  iconColor?: "primary-dark" | "secondary" | "accent" | "muted" | "success" | "danger";
 }
 
 export const SummaryBox = ({
@@ -17,7 +17,7 @@ export const SummaryBox = ({
   value,
   description,
   icon,
-  iconColor = "primary",
+  iconColor = "primary-dark",
   className,
   ...props
 }: SummaryBoxProps) => {

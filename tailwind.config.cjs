@@ -12,9 +12,14 @@ module.exports = {
         danger: "#E53E3E",
         "text-main": "#1F2937", // gray-800
         "text-secondary": "#64748B", // slate-500
+    
+        // חשוב: אם אתה משתמש ב-`border-border` בקלאסים, וודא שהצבע `border` מוגדר כאן
+        border: "#E5E7EB", // הוסף את זה אם הוא לא היה שם
       },
 
-
+fontFamily: {
+        sans: ['Inter', 'sans-serif'], // זה מחליף את הפונט ה-sans ברירת המחדל של Tailwind ל-Inter
+      },
       fontSize: {
         xs: ["0.75rem", { lineHeight: "1rem" }],
         sm: ["0.875rem", { lineHeight: "1.25rem" }],

@@ -48,7 +48,7 @@ import { SummaryBox } from "../components/ui/SummaryBox";
 // קומפוננטה חדשה לתיבה הירוקה
 export const CompletionBox = () => {
   return (
-    <div className="bg-primary text-white flex flex-col items-center justify-center p-6 rounded-xl text-center space-y-2 min-h-[200px]">
+    <div className="bg-primary-dark text-white flex flex-col items-center justify-center p-6 rounded-xl text-center space-y-2 min-h-[200px]">
       <p className="text-sm">השלימי את כל השאלות</p>
       <div className="text-[28px] font-bold">50%</div>
       <p className="text-sm leading-snug">כדי לקבל תעודה</p>
@@ -68,7 +68,7 @@ export const DashboardSummary = () => {
         value="17"
         description="תרגולים שבוצעו"
         icon={<Mic />}
-        iconColor="primary"
+        iconColor="primary-dark"
       />
       <SummaryBox
         title="ציון ממוצע"

@@ -1,5 +1,6 @@
 import { Card } from "../components/ui/card"
 import { Grid } from "../components/ui/grid"
+import { GridContainer } from "../components/ui/GridContainer"
 
 
 
@@ -7,6 +8,7 @@ const GridA=()=>{
     return(
         <>
 <Grid cols={3}>
+
   <Card
     title="מדריך כתיבת קורות חיים"
     category="קורות חיים"

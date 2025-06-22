@@ -4,6 +4,8 @@ import Home from "./pages/Home";
 import GridA from "./pages/GridA";
 import { Button } from "./components/ui/button";
 import { CompletionBox, DashboardSummary } from "./pages/DashboardSummary";
+import MyRecordingControls from "./pages/MyRecordingControls";
+import DashboardPage from "./pages/DashboardPage";
 
 
 export default function App() {
@@ -14,11 +16,8 @@ export default function App() {
   
   return (
     <div>
-      <CompletionBox></CompletionBox>
-      <DashboardSummary></DashboardSummary>
-
-             <Button variant="danger" onClick={handleGrid}>לגריד</Button>
-     {isDisplay?<GridA></GridA>:<Home></Home>} 
+  
+    <Home></Home>
     </div>
   );
 }

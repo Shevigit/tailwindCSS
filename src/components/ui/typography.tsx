@@ -1,7 +1,16 @@
-export const H1 = ({ children, className = "" }) => (
-  <h1 className={`text-3xl font-bold text-[--color-text] ${className}`}>{children}</h1>
+
+import { cn } from "../../lib/utils";
+interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {}
+export const Heading1 = ({ className, children, ...props }: HeadingProps) => (
+  <h1 className={cn("text-4xl md:text-5xl font-bold text-text-main leading-tight", className)} {...props}>
+    {children}
+  </h1>
 );
 
-export const Paragraph = ({ children, className = "" }) => (
-  <p className={`text-sm text-[--color-secondary-text] ${className}`}>{children}</p>
+
+interface ParagraphProps extends React.HTMLAttributes<HTMLParagraphElement> {}
+export const Paragraph = ({ className, children, ...props }: ParagraphProps) => (
+  <p className={cn("text-base text-text-secondary leading-relaxed", className)} {...props}>
+    {children}
+  </p>
 );

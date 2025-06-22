@@ -3,13 +3,13 @@ import { cn } from "../../lib/utils";
 
 interface IconWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: "sm" | "md" | "lg";
-  color?: "primary" | "secondary" | "accent" | "muted" | "success" | "danger";
+  color?: "primary-dark" | "secondary" | "accent" | "muted" | "success" | "danger";
   children: React.ReactNode;
 }
 
 export const IconWrapper = ({
   size = "md",
-  color = "primary",
+  color = "primary-dark",
   className,
   children,
   ...props
@@ -21,7 +21,7 @@ export const IconWrapper = ({
   };
 
   const colorClasses = {
-    primary: "bg-primary text-white",
+    primary: "bg-primary-dark text-white",
     secondary: "bg-secondary text-white",
     accent: "bg-accent text-white",
     muted: "bg-muted text-text-main",
