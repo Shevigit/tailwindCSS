@@ -3,6 +3,7 @@ import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { Card } from "../components/ui/card";
 import { H1, Paragraph } from "../components/ui/typography";
+import { SidebarNavigation } from "../components/ui/sidebarNavigation";
 import MessageModal from "../components/ui/messageModal";
 import ShareRecordingContent from "../components/ui/shareRecordingContentProps";
 import { useState } from "react";
@@ -13,6 +14,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex items-center justify-center p-6 bg-[--color-background]">
+      <SidebarNavigation />
       <Card className="w-full max-w-md space-y-4">
         <H1>ברוך הבא</H1>
         <Paragraph>נא להזין את כתובת האימייל שלך כדי להתחיל</Paragraph>

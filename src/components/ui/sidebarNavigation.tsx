@@ -1,7 +1,10 @@
-// components/SidebarNavigation.tsx
 import React from "react";
 import { cn } from "../../lib/utils";
 import { useLocation } from "react-router-dom";
+
+export interface SidebarProps extends React.HTMLAttributes<HTMLElement> {
+  variant?: "default" | "minimal" | "boxed";
+}
 
 interface NavItem {
   label: string;
@@ -22,34 +25,51 @@ const navItems: NavItem[] = [
   { label: "ניהול מאגר", href: "/manage-knowledge" },
 ];
 
-export const SidebarNavigation = () => {
-  const location = useLocation();
+export const SidebarNavigation = React.forwardRef<HTMLElement, SidebarProps>(
+  ({ className, variant = "default", ...props }, ref) => {
+    const location = useLocation();
 
-  return (
-    <aside className="w-64 bg-white p-4 text-right">
-      <h1 className="text-xl font-bold text-[--text-main] mb-6">Interview Pro</h1>
-      <nav className="flex flex-col gap-2">
-        {navItems.map(({ label, href, isSectionTitle }) =>
-          isSectionTitle ? (
-            <div key={label} className="text-[--text-secondary] text-sm mt-4 mb-1 font-medium">
-              {label}
-            </div>
-          ) : (
-            <a
-              key={label}
-              href={href}
-              className={cn(
-                "block px-4 py-2 rounded-md text-sm font-medium transition",
-                location.pathname === href
-                  ? "bg-[--color-primary] text-white"
-                  : "text-[--text-main] hover:bg-[--color-primary]/10"
-              )}
-            >
-              {label}
-            </a>
-          )
-        )}
-      </nav>
-    </aside>
-  );
-};
+    const base = "text-right";
+    const variants = {
+      default: "bg-white w-64 p-4 shadow-md",
+      minimal: "bg-transparent w-56 p-2",
+      boxed: "bg-muted border rounded-xl w-64 p-4 shadow-sm",
+    };
+
+    return (
+      <aside
+        ref={ref}
+        className={cn(base, variants[variant], className)}
+        {...props}
+      >
+        <h1 className="text-xl font-bold text-[--text-main] mb-6">Interview Pro</h1>
+        <nav className="flex flex-col gap-2">
+          {navItems.map(({ label, href, isSectionTitle }) =>
+            isSectionTitle ? (
+              <div
+                key={label}
+                className="text-[--text-secondary] text-sm mt-4 mb-1 font-medium"
+              >
+                {label}
+              </div>
+            ) : (
+              <a
+                key={label}
+                href={href}
+                className={cn(
+                  "block px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200",
+                  location.pathname === href
+                    ? "bg-[--color-primary] text-white"
+                    : "text-[--text-main] hover:bg-[--color-primary] hover:text-white"
+                )}
+              >
+                {label}
+              </a>
+            )
+          )}
+        </nav>
+      </aside>
+    );
+  }
+);
+SidebarNavigation.displayName = "SidebarNavigation";
