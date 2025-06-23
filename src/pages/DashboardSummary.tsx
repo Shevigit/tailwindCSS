@@ -1,47 +1,4 @@
-// // DashboardSummary.tsx
-// import { Mic, Star, CheckCircle, CircleGauge } from "lucide-react";
-// import { SummaryBox } from "../components/ui/SummaryBox";
 
-// export const DashboardSummary = () => {
-//   return (
-//     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-//       <SummaryBox
-//         title="סה״כ הקלטות"
-//         value="17"
-//         description="תרגולים שבוצעו"
-//         icon={<Mic />}
-//         iconColor="primary"
-//       />
-//       <SummaryBox
-//         title="ציון ממוצע"
-//         value="4.1 / 5.0"
-//         description={<div className="text-yellow-400 text-lg">★★★★☆</div>}
-//         icon={<Star />}
-//         iconColor="accent"
-//       />
-//       <SummaryBox
-//         title="התקדמות כללית"
-//         value="7 / 14"
-//         description={
-//           <div className="w-full h-2 bg-muted rounded">
-//             <div className="h-full bg-primary-dark rounded" style={{ width: "50%" }} />
-//           </div>
-//         }
-//         icon={<CircleGauge />}
-//         iconColor="secondary"
-//       />
-//       <SummaryBox
-//         title="השלימי את כל השאלות"
-//         value="50%"
-//         description="כדי לקבל תעודה"
-//         icon={<CheckCircle />}
-//         iconColor="success"
-//       />
-//     </div>
-//   );
-// };
-// DashboardSummary.tsx
-// DashboardSummary.tsx
 import { Mic, Star, CheckCircle, CircleGauge } from "lucide-react";
 import { SummaryBox } from "../components/ui/SummaryBox";
 
