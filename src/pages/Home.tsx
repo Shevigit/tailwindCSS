@@ -12,8 +12,13 @@ import { GridContainer } from "../components/ui/GridContainer";
 import { CloudUpload } from 'lucide-react';
 import { SummaryBox } from "../components/ui/SummaryBox";
 import { Grid } from "../components/ui/grid";
+import { useMessageModal } from "../components/ui/MessageModalContext";
 const Home=() =>{
+    const { showMessage } = useMessageModal();
 
+  const handleButtonClick = () => {
+    showMessage('הודעה חשובה', 'זוהי הודעה לדוגמה מהקומפוננטה שלי.');
+  };
   return (
     <div className="min-h-screen flex items-center justify-center p-6 bg-[--color-background]">
      <GridContainer maxWidth="lg" mt="mt-8" mb="mb-16"> 
@@ -67,7 +72,10 @@ const Home=() =>{
           iconColor="primary-dark"
         />
         </Grid>
-        <Button>בהצלחה!</Button>
+        <Button  onClick={handleButtonClick}>הצג הודעה</Button>
+    <div>
+      
+    </div>
       </GridContainer>
     </div>
        

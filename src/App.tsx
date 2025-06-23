@@ -6,6 +6,7 @@ import { Button } from "./components/ui/button";
 import { CompletionBox, DashboardSummary } from "./pages/DashboardSummary";
 import MyRecordingControls from "./pages/MyRecordingControls";
 import DashboardPage from "./pages/DashboardPage";
+import { MessageModalProvider } from "./components/ui/MessageModalContext";
 
 
 export default function App() {
@@ -16,8 +17,10 @@ export default function App() {
   
   return (
     <div>
-  
-    <Home></Home>
+  <MessageModalProvider>
+        <Home></Home>
+    </MessageModalProvider> 
+
     </div>
   );
 }

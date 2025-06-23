@@ -1,16 +1,15 @@
-
 import * as React from "react";
-import { cn } from "../../lib/utils"; // וודא שהנתיב נכון ל-cn
-import { CloudUpload, StopCircle } from "lucide-react"; // דוגמאות לאייקונים מ-lucide-react
+import { cn } from "../../lib/utils";
+import { CloudUpload, StopCircle } from "lucide-react";
 
-// הגדרת ממשק הפרופסים של הכפתור
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary-dark" | "danger" | "outline" | "ghost"; // סוגי עיצוב שונים
-  size?: "sm" | "md" | "lg"; // גודל הכפתור
-  isLoading?: boolean; // מצב טעינה
-  icon?: React.ReactNode; // אייקון
-  iconPosition?: "left" | "right"; // מיקום האייקון
-  fullWidth?: boolean; // האם הכפתור יתפרס לרוחב המלא
+  // הרחבת סוגי הווריאנטים
+  variant?: "primary-dark" | "danger" | "outline" | "ghost" | "transparent";
+  size?: "sm" | "md" | "lg" | "extra-wide"; // הוספת גודל "רחב במיוחד"
+  isLoading?: boolean;
+  icon?: React.ReactNode;
+  iconPosition?: "left" | "right";
+  fullWidth?: boolean;
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -18,34 +17,34 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     {
       className,
       children,
-      variant = "primary-dark", // ברירת מחדל: ירוק
-      size = "md", // ברירת מחדל: בינוני
-      isLoading = false, // ברירת מחדל: לא בטעינה
+      variant = "primary-dark",
+      size = "md",
+      isLoading = false,
       icon,
-      iconPosition = "left", // ברירת מחדל: אייקון משמאל
-      fullWidth = false, // ברירת מחדל: לא רוחב מלא
-      disabled, // מקבל את הפרופ disabled
+      iconPosition = "left",
+      fullWidth = false,
+      disabled,
       ...props
     },
     ref
   ) => {
-    // הגדרת קלאסים לפי הווריאנט
     const variantClasses = {
-      primary: "bg-primary-dark text-white hover:bg-primary-dark focus:ring-primary-dark",
-      danger: "bg-danger text-white hover:bg-red-700 focus:ring-danger", // השתמש ב-red-700 או ב-danger-dark אם תגדיר
+      "primary-dark": "bg-primary-dark text-white hover:bg-primary-dark/90 focus:ring-primary-dark",
+      danger: "bg-danger text-white hover:bg-danger/90 focus:ring-danger",
       outline: "bg-white text-text-main border border-border hover:bg-muted focus:ring-gray-300",
       ghost: "bg-transparent text-text-main hover:bg-muted focus:ring-gray-300",
+      transparent: "bg-transparent text-text-main hover:bg-gray-100 border border-transparent focus:ring-gray-300", // וריאנט שקוף
     };
 
-    // הגדרת קלאסים לפי הגודל
     const sizeClasses = {
-      // sm: "px-4 py-2 text-sm",
-      sm: "px-3 py-0.25 text-sm",  
-      md: "px-6 py-3 text-base",
-      lg: "px-8 py-4 text-lg",
+      sm: "px-4 py-1.5 text-sm",
+      md: "px-6 py-2.5 text-base",
+      lg: "px-8 py-3.5 text-lg",
+      // הגדרת גודל "רחב במיוחד" - עם ריפוד אופקי משמעותי
+      "extra-wide": "px-16 py-3 text-base", // לדוגמה: ריפוד רחב מאוד
     };
 
-    const isDisabled = disabled || isLoading; 
+    const isDisabled = disabled || isLoading;
 
     return (
       <button
@@ -54,10 +53,10 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           "inline-flex items-center justify-center rounded-lg font-semibold whitespace-nowrap",
           "transition-colors duration-200 ease-in-out",
           "focus:outline-none focus:ring-2 focus:ring-opacity-50",
-          "gap-2", 
+          "gap-2",
           variantClasses[variant],
-          sizeClasses[size],
-          fullWidth && "w-full", 
+          sizeClasses[size], // יישום גודל שנקבע, כולל "extra-wide"
+          fullWidth && "w-full", // fullWidth תמיד ישלוט ברוחב 100%
           isDisabled && "opacity-70 cursor-not-allowed",
           className
         )}
@@ -77,6 +76,5 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     );
   }
 );
-
 
 Button.displayName = "Button";
